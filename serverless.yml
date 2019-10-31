@@ -1,4 +1,4 @@
-service: aws-bolt
+service: serverless-ghostbuster-slack
 
 plugins:
   - serverless-offline
@@ -9,6 +9,8 @@ provider:
   environment:
     SLACK_SIGNING_SECRET: ${env:SLACK_SIGNING_SECRET}
     SLACK_BOT_TOKEN: ${env:SLACK_BOT_TOKEN}
+  iamManagedPolicies:
+    - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 
 functions:
   app:
